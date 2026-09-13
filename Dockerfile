@@ -19,6 +19,7 @@ RUN git clone -b 24.10 https://github.com/liudf0716/chawrt.git
 
 WORKDIR /home/${USERNAME}/chawrt
 
+RUN echo '# CONFIG_REALTEK_PHY_HWMON is not set' >> target/linux/generic/config-6.6
 RUN ./scripts/feeds update -a && \
     ./scripts/feeds install -a
 COPY --chown=${USERNAME}:${USERNAME} configs/thunder-onecloud.config .config
